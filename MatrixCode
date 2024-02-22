@@ -35,13 +35,11 @@ void setup() {
   lc.clearDisplay(0);
 }
 
-
 void loop() {
   for (int i = 0; i <= 7; i++) {
     lc.setRow(0, i, bigHeart[i]);
     lc.setIntensity(0, maxBrightness);
   }
-
 
   delay(shortdelayTime);
 
@@ -56,7 +54,6 @@ void loop() {
     lc.setRow(0, i, bigHeart[i]);
     lc.setIntensity(0, maxBrightness);
   }
-
 
   delay(shortdelayTime);
 
@@ -67,5 +64,3 @@ void loop() {
 
   delay(longdelayTime);
 }
-
-
