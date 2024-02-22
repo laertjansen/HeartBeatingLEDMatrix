@@ -1,0 +1,71 @@
+// Create shapes here: https://www.riyas.org/2013/12/online-led-matrix-font-generator-with.html
+// This code will simulate a heartbeat animation
+
+#include "LedControl.h"
+
+LedControl lc = LedControl(12, 10, 11, 1);
+
+byte bigHeart[] = { B00000000,
+                    B01100110,
+                    B11111111,
+                    B11111111,
+                    B01111110,
+                    B00111100,
+                    B00011000,
+                    B00000000 };
+
+byte smallHeart[] = { B00000000,
+                      B00000000,
+                      B00100100,
+                      B01111110,
+                      B01111110,
+                      B00111100,
+                      B00011000,
+                      B00000000 };
+
+int shortdelayTime = 190;
+int longdelayTime = 900;
+
+float minBrightness = .01;
+float maxBrightness = 10;
+
+void setup() {
+  lc.shutdown(0, false);
+  lc.setIntensity(0, 8);
+  lc.clearDisplay(0);
+}
+
+
+void loop() {
+  for (int i = 0; i <= 7; i++) {
+    lc.setRow(0, i, bigHeart[i]);
+    lc.setIntensity(0, maxBrightness);
+  }
+
+
+  delay(shortdelayTime);
+
+  for (int i = 0; i <= 7; i++) {
+    lc.setRow(0, i, bigHeart[i]);
+    lc.setIntensity(0, minBrightness);
+  }
+
+  delay(shortdelayTime);
+
+  for (int i = 0; i <= 7; i++) {
+    lc.setRow(0, i, bigHeart[i]);
+    lc.setIntensity(0, maxBrightness);
+  }
+
+
+  delay(shortdelayTime);
+
+  for (int i = 0; i <= 7; i++) {
+    lc.setRow(0, i, bigHeart[i]);
+    lc.setIntensity(0, minBrightness);
+  }
+
+  delay(longdelayTime);
+}
+
+
